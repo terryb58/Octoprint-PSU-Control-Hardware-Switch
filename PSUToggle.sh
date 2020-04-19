@@ -6,4 +6,4 @@
 #
 # Questions? Email me at terry.bogayong@mak3rhq.command
 source ~pi/Octoprint-PSU-Control-Hardware-Switch/vars.sh
-curl -s -H "Content-Type: application/json" -H "X-Api-Key: $API_KEY" -X POST -d '{ "command":"turnPSUOff" }' http://localhost/api/plugin/psucontrol
+curl -s -H "Content-Type: application/json" -H "X-Api-Key: $API_KEY" -X POST -d '{ "command":"togglePSU" }' http://localhost/api/plugin/psucontrol

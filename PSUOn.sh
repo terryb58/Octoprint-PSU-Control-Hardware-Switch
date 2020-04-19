@@ -5,5 +5,5 @@
 #   - Username and password for logging into OctoPrint
 #
 # Questions? Email me at terry.bogayong@mak3rhq.command
-curl -s -H "Content-Type: application/json" -H "X-Api-Key: __YOUR_API_KEY_FROM_OCTOPRINT__" -X POST -d '{ "command":"turnPSUOn" }' -u username:password http://localhost/api/plugin/psucontrol
-
+source ~pi/Octoprint-PSU-Control-Hardware-Switch/vars.sh
+curl -s -H "Content-Type: application/json" -H "X-Api-Key: $API_KEY" -X POST -d '{ "command":"turnPSUOn" }' http://localhost/api/plugin/psucontrol
