@@ -34,6 +34,12 @@ try:
     #if button pressed for at least .2 of a second (avoid false detections)
     if buttonTime >= .2:
       os.system("sudo ~pi/Octoprint-PSU-Control-Hardware-Switch/PSUToggle.sh")
+  
+      try:
+        os.mkdir("/var/log/OctoPiPowerBtn")
+      except OSError:
+        pass
+
       try:
         f = open(logFile, "x")
       except:
@@ -46,7 +52,7 @@ try:
     buttonTime = 0
 
   #GPIO interrupt to detect button press
-  GPIO.add_event_detect(27, GPIO.RISING, callback=my_callback, bouncetime=300)
+  GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=my_callback, bouncetime=300)
 
   #Make script running forever
   signal.pause()
